@@ -3,25 +3,31 @@ import Image from "next/image";
 type ProfilePhotoProps = {
   containerStyles: string;
   imgSrc: string;
+  imgStyles?: string;
+  maskUrl?: string;
 };
 
-const ProfilePhoto = ({ containerStyles, imgSrc }: ProfilePhotoProps) => {
+const ProfilePhoto = ({ containerStyles, imgSrc, imgStyles, maskUrl }: ProfilePhotoProps) => {
+  const maskStyles = maskUrl
+  ? {
+      WebkitMaskImage: `url('${maskUrl}')`,
+      maskImage: `url('${maskUrl}')`,
+      WebkitMaskRepeat: "no-repeat",
+      WebkitMaskSize: "contain",
+      maskRepeat: "no-repeat",
+      maskSize: "contain",
+    }
+  : {};
+
   return (
-    <div className={`${containerStyles} flex justify-center items-center relative`}>
+  <div className={`${containerStyles}`}>
       <Image
         src={imgSrc}
         priority
         alt="Profile Blob"
         fill
-        className="w-full h-full object-cover object-bottom" // Aligns image to start from the bottom
-        style={{
-          WebkitMaskImage: "url('/hero/shape-1.svg')",
-          maskImage: "url('/hero/shape-1.svg')",
-          WebkitMaskRepeat: "no-repeat",
-          WebkitMaskSize: "contain",
-          maskRepeat: "no-repeat",
-          maskSize: "contain",
-        }}
+        className={imgStyles}
+        style={maskStyles}
       />
     </div>
   );

@@ -52,6 +52,8 @@ const Hero: React.FC = () => {
               <ProfilePhoto
                 containerStyles="w-full h-full bg-[url('/hero/shape-1-light.svg')] bg-contain bg-no-repeat flex justify-center items-center relative"
                 imgSrc="/hero/korina-sample.png"
+                imgStyles="w-full h-full object-cover object-bottom"
+                maskUrl="/hero/shape-1.svg"
               />
             </div>
           </div>
