@@ -30,10 +30,10 @@ type SkillItem = {
   name: string;
 };
 
-type SkillCategory = {
-  title: "skills" | "tools"; // Ensuring only these specific values are allowed
-  data: SkillItem[];
-};
+// type SkillCategory = {
+//   title: "skills" | "tools"; // Ensuring only these specific values are allowed
+//   data: SkillItem[];
+// };
 
 
 
@@ -90,26 +90,26 @@ const infoData: InfoItem[] = [
 ];
 
 
-const skillsData: SkillCategory[] = [
-  {
-    title: "skills",
-    data: [
-      { name: "Basic HTML, CSS, Social Media Management, SEO & Blog Management" },
-      { name: "Data Entry & Management" },
-      { name: "Email Management" },
-      { name: "Scheduling & Calendar Management" },
-      { name: "Microsoft Office & Google Suite" },
-      { name: "CRM & Project Management Tools" },
-      { name: "Cloud Storage & Collaboration Tools" },
-      { name: "Basic Graphic Design" },
-      { name: "Basic Video Editing" },
-    ],
-  },
-  {
-    title: "tools",
-    data: [],
-  },
-];
+// const skillsData: SkillCategory[] = [
+//   {
+//     title: "skills",
+//     data: [
+//       { name: "Basic HTML, CSS, Social Media Management, SEO & Blog Management" },
+//       { name: "Data Entry & Management" },
+//       { name: "Email Management" },
+//       { name: "Scheduling & Calendar Management" },
+//       { name: "Microsoft Office & Google Suite" },
+//       { name: "CRM & Project Management Tools" },
+//       { name: "Cloud Storage & Collaboration Tools" },
+//       { name: "Basic Graphic Design" },
+//       { name: "Basic Video Editing" },
+//     ],
+//   },
+//   {
+//     title: "tools",
+//     data: [],
+//   },
+// ];
 
 
 
