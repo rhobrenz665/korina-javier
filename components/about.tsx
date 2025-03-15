@@ -26,9 +26,9 @@ type InfoItem = {
   text: string;
 };
 
-type SkillItem = {
-  name: string;
-};
+// type SkillItem = {
+//   name: string;
+// };
 
 // type SkillCategory = {
 //   title: "skills" | "tools"; // Ensuring only these specific values are allowed
