@@ -29,7 +29,8 @@
 }
 
 .dark {
-  --background: hsl(298, 44%, 10%);
+  --background: hsl(298, 44%, 5%); /* Dark background */
+  --secondary-foreground: hsl(298, 44%, 10%);
   --foreground: hsl(298, 5%, 90%);
   --card: hsl(298, 44%, 10%);
   --card-foreground: hsl(298, 5%, 90%);
@@ -402,6 +403,14 @@
 }
 
 @layer components {
+  /* body {
+    @apply bg-background text-foreground;
+  } */
+
+  .dark body {
+    @apply bg-background text-foreground;
+  }
+
   button {
     cursor: pointer;
   }

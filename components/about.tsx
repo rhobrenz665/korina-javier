@@ -1,7 +1,9 @@
 import React, { JSX } from 'react'
 import {Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { User2, MailIcon, PhoneCall, GraduationCap, Calendar, Briefcase, HomeIcon } from 'lucide-react'
+import { User2, MailIcon, PhoneCall, GraduationCap, Calendar, Briefcase, HomeIcon, BadgeCheck, Wrench } from 'lucide-react'
+import { Mail, Folder, FileText, LayoutGrid, MessageSquare, Image } from "lucide-react";
+
 import ProfilePhoto from './profile-photo'
 
 
@@ -26,15 +28,23 @@ type InfoItem = {
   text: string;
 };
 
-// type SkillItem = {
-//   name: string;
-// };
+type SkillItem = {
+  name: string;
+};
 
-// type SkillCategory = {
-//   title: "skills" | "tools"; // Ensuring only these specific values are allowed
-//   data: SkillItem[];
-// };
+type ToolItem = {
+  name: string;
+  icon: JSX.Element;
 
+};
+
+type SkillCategory = {
+  title: "skills";
+  data: SkillItem[];
+} | {
+  title: "tools";
+  data: ToolItem[];
+};
 
 
 const infoQualificationData: QualificationData[] = [
@@ -90,26 +100,34 @@ const infoData: InfoItem[] = [
 ];
 
 
-// const skillsData: SkillCategory[] = [
-//   {
-//     title: "skills",
-//     data: [
-//       { name: "Basic HTML, CSS, Social Media Management, SEO & Blog Management" },
-//       { name: "Data Entry & Management" },
-//       { name: "Email Management" },
-//       { name: "Scheduling & Calendar Management" },
-//       { name: "Microsoft Office & Google Suite" },
-//       { name: "CRM & Project Management Tools" },
-//       { name: "Cloud Storage & Collaboration Tools" },
-//       { name: "Basic Graphic Design" },
-//       { name: "Basic Video Editing" },
-//     ],
-//   },
-//   {
-//     title: "tools",
-//     data: [],
-//   },
-// ];
+const skillsData: SkillCategory[] = [
+  {
+    title: "skills",
+    data: [
+      { name: "Email Management" },
+      { name: "Social Media Management" },
+      { name: "Data Entry & Management" },
+      { name: "Scheduling & Calendar Management" },
+      { name: "Microsoft Office & Google Suite" },
+      { name: "CRM & Project Management Tools" },
+      { name: "Cloud Storage & Collaboration Tools" },
+      { name: "Basic Graphic Design" },
+      { name: "Basic Video Editing" },
+    ],
+  },
+  {
+    title: "tools",
+    data: [
+      { name: "Gmail", icon: <Mail size={20} /> }, 
+      { name: "Google Drive", icon: <Folder size={20} /> },
+      { name: "Microsoft Office", icon: <FileText size={20} /> }, 
+      { name: "Trello", icon: <LayoutGrid size={20} /> }, 
+      { name: "Slack", icon: <MessageSquare size={20} /> }, 
+      { name: "Canva", icon: <Image size={20} /> }, 
+      { name: "Microsoft Teams", icon: <Briefcase size={20} /> }
+    ]
+  },
+];
 
 
 
@@ -210,7 +228,7 @@ const About = () => {
                           })}
                         </div>
                       </div>
-                      <div>
+                      <div className='flex flex-col gap-y-6'>
                         <div className='flex gap-x-4 items-center text-[22px] text-primary'>
                           <GraduationCap />
                           <h4 className='capitalize font-medium'>
@@ -238,7 +256,66 @@ const About = () => {
                     </div>
                   </div>
                 </TabsContent>
-                <TabsContent value='skills'>skills</TabsContent>
+                          
+                  {/* start skills  */}
+                <TabsContent value="skills">
+                    <div className="text-center xl:text-left">
+                        <h3 className="h3 mb-3">How I Can Help You</h3>
+                        <div>
+                            {skillsData
+                              .filter((category: SkillCategory) => category.title === "skills")
+                              .map((category: SkillCategory) => (
+                                <div key={category.title} className="max-w-2xl mx-auto xl:mx-0 p-4">
+                                  <div className="flex items-center gap-2 mb-4 xl:justify-start justify-center">
+                                    <BadgeCheck className="w-6 h-6 text-primary" />
+                                    <h4 className="capitalize font-medium text-xl text-primary">
+                                      {category.title}
+                                    </h4>
+                                  </div>
+
+                                  {/* Skills List */}
+                                  <ul className="flex flex-wrap justify-center xl:justify-start gap-3 text-base text-gray-800 dark:text-gray-200">
+                                    {category.data.map((skill: SkillItem, index: number) => (
+                                      <li
+                                        key={index}
+                                        className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium shadow-sm"
+                                      >
+                                        {skill.name}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                          </div>  
+                          <div>
+                            {skillsData
+                              .filter((category: SkillCategory) => category.title === "tools")
+                              .map((category) => (
+                                <div key={category.title} className="max-w-2xl mx-auto xl:mx-0 p-4">
+                                  <div className="flex items-center gap-2 mb-4 xl:justify-start justify-center">
+                                    <Wrench className="w-6 h-6 text-primary" />
+                                    <h4 className="capitalize font-medium text-xl text-primary">
+                                      {category.title}
+                                    </h4>
+                                  </div>
+
+                                  <ul className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm sm:text-base text-gray-800 dark:text-gray-200">
+                                    {category.data.map((tool: ToolItem, index) => (
+                                      <li
+                                        key={index}
+                                        className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 font-medium shadow-sm flex items-center gap-2"
+                                      >
+                                        {tool.icon}
+                                        {tool.name}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              ))}
+                          </div>
+                      </div>
+                  </TabsContent>
+                  {/* end skills */}
               </div>
             </Tabs>
           </div>

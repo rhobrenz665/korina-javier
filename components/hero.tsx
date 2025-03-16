@@ -9,7 +9,7 @@ import ProfilePhoto from "./profile-photo";
 
 const Hero: React.FC = () => {
   return (
-    <section className="py-12 xl:py-24 h-[84vh] xl:pt-28 bg-[url('/hero/hero-bg.png')] bg-no-repeat bg-bottom bg-cover dark:bg-none">
+    <section className="mb-2 pb-2 md:mb-0 md:pb-0 xl:mb-0 xl:pb-0 py-12 xl:py-24 h-[84vh] xl:pt-28 bg-[url('/hero/hero-bg.png')] bg-no-repeat bg-bottom bg-cover dark:bg-none">
       <div className="container mx-auto">
         <div className="flex justify-between gap-x-8">
           {/* Text Content */}
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
               support to enhance productivity.
             </p>
             <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12">
-              <Link href="/contacts">
+              <Link href="/contact">
                 <Button className="gap-x-2">
                   Contact me <Send size={18} />
                 </Button>

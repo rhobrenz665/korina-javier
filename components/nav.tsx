@@ -5,7 +5,7 @@ import {  motion } from "framer-motion";
 const links = [
   { path: "/", name: "home" },
   { path: "/services", name: "services" },
-  { path: "/contacts", name: "contact" },
+  { path: "/contact", name: "contact" },
 ];
 
 interface NavProps {
