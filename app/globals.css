@@ -403,10 +403,6 @@
 }
 
 @layer components {
-  /* body {
-    @apply bg-background text-foreground;
-  } */
-
   .dark body {
     @apply bg-background text-foreground;
   }
@@ -436,6 +432,6 @@
     @apply text-muted-foreground text-lg mb-8 font-light;
   }
   .section-title {
-    @apply text-4xl font-bold relative w-max flex items-center justify-between gap-x-3
+    @apply text-4xl font-bold relative w-max flex items-center justify-between gap-x-3;
   }
 }

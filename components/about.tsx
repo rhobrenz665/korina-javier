@@ -2,7 +2,7 @@ import React, { JSX } from 'react'
 import {Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import { User2, MailIcon, PhoneCall, GraduationCap, Calendar, Briefcase, HomeIcon, BadgeCheck, Wrench } from 'lucide-react'
-import { Mail, Folder, FileText, LayoutGrid, MessageSquare, Image } from "lucide-react";
+import { Mail, Folder, FileText, LayoutGrid, MessageSquare } from "lucide-react";
 
 import ProfilePhoto from './profile-photo'
 
@@ -123,7 +123,7 @@ const skillsData: SkillCategory[] = [
       { name: "Microsoft Office", icon: <FileText size={20} /> }, 
       { name: "Trello", icon: <LayoutGrid size={20} /> }, 
       { name: "Slack", icon: <MessageSquare size={20} /> }, 
-      { name: "Canva", icon: <Image size={20} /> }, 
+      { name: "Canva", icon: <FileText size={20} /> }, 
       { name: "Microsoft Teams", icon: <Briefcase size={20} /> }
     ]
   },
